@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+             background-color: #e8eaed;
+             background-size: cover;
+             background-position: center;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             height: 100vh;
+        }
+
+        h1 {
+            color: #ff4081;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            width: 300px; /* Fixed width */
+            max-width: 90%; /* Maximum width */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Black shadow */
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        .input-group input {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .calculate-button {
+            background-color: #ff4081;
+            color: white;
+        }
+
+        .clear-button {
+            background-color: greenyellow;
+        }
+
+        .progress-circle {
+            width: 100px;
+            height: 100px;
+            background: conic-gradient(#ff4081 0%, #ff4081 100%, #eee 100%, #eee 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            font-size: 20px;
+            color: white;
+            display: none;
+        }
+
+        .result-text {
+            font-size: 18px;
+            color: #333;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-weight: bold;
+            color: black; /* White text color */
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer a {
+            color: black;/* White link color */
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+        header {
+            position:fixed;
+            top: 0;
+            width: 100%;
+            font-weight: bold;
+            color: black; /* White text color */
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        header a {
+            color: blueviolet; /* White link color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+   <header>
+    <h1>Love Calculator</h1>
+    <p>Calculate - How Much Partners Love you</p>
+  </header>
+    <div class="container">
+        <h1>Love Calculator</h1>
+        <p>Find out how much your partner loves you!</p>
+
+        <div class="input-group">
+            <input type="text" id="yourName" placeholder="Your Name">
+        </div>
+        <div class="input-group">
+            <input type="text" id="partnerName" placeholder="Partner's Name">
+        </div>
+        <div class="buttons">
+            <button class="calculate-button" onclick="calculateLove()">Calculate</button>
+            <button class="clear-button" onclick="clearFields()">Clear</button>
+        </div>
+
+        <div class="progress-circle" id="progressCircle">100%</div>
+        <div class="result-text" id="resultText"></div>
+    </div>
+     <footer>
+        Built by athokpamrohit45
+    </footer>
+
+    <script>
+        function calculateLove() {
+            const yourName = document.getElementById('yourName').value.trim();
+            const partnerName = document.getElementById('partnerName').value.trim();
+
+            if (yourName && partnerName) {
+                const lovePercentage = Math.floor(Math.random() * 11) + 89;
+                document.getElementById('progressCircle').style.display = 'flex';
+                document.getElementById('progressCircle').innerText = lovePercentage + '%';
+                document.getElementById('progressCircle').style.background = `conic-gradient(#ff4081 0%, #ff4081 ${lovePercentage}%, #eee ${lovePercentage}%, #eee 100%)`;
+                document.getElementById('resultText').innerText = `Congratulations, your love percentage is ${lovePercentage}%`;
+            } else {
+                alert('Please enter both names.');
+            }
+        }
+
+        function clearFields() {
+            document.getElementById('yourName').value = '';
+            document.getElementById('partnerName').value = '';
+            document.getElementById('progressCircle').style.display = 'none';
+            document.getElementById('resultText').innerText = '';
+        }
+    </script>
+</body>
+</html>
